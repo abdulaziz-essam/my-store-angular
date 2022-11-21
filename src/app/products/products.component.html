@@ -1,0 +1,14 @@
+
+<div class="card">
+  <img src="{{item.url}}" style="width:100%">
+  <div class="container">
+
+    <p>{{item.description}}</p> 
+    <div class="row">
+      <div class="col">
+       
+      end of col
+      <br><br>
+      <button (click)="itemDetail($event, item)"    [routerLink]="['/item']">click</button>
+  </div>
+</div>

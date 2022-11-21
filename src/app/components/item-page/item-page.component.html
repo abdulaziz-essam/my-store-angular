@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="card">
+
+    <img class='img' src="{{item.url}}" alt="Avatar" >
+ 
+    <div class="container">
+   
+      <h1 class="description">{{item.description}} </h1> 
+      <br><br><br>
+      
+          <div ngbDropdown class="d-inline-block">
+            <button class="dropdown" type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{item.price}}  </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1"  >
+              <button ngbDropdownItem (click)="itemNumber(1)">1</button>
+              <button ngbDropdownItem (click)="itemNumber(2)">2</button>
+              <button ngbDropdownItem (click)="itemNumber(3)">3</button>
+              <button ngbDropdownItem (click)="itemNumber(4)">4</button>
+              <button ngbDropdownItem (click)="itemNumber(5)">5</button>
+            </div>
+  
+        <br><br>
+        <button class="add-button"   (click)="sendToCart($event,item)" [routerLink]="['/cart']" >Add to cart</button>
+    </div>
+    <br><br><br>
+  </div>
+  

@@ -1,0 +1,35 @@
+.form-control{
+    width: 400px;
+    margin-left: 40%;
+    margin-top: 1%;
+}
+label{
+    margin-left: 41%;
+}
+.credit-card{
+    margin-top: 1%;
+}
+.btn-primary{
+    margin-left: 48%;
+    margin-top: 2%;
+
+}
+.data{
+    margin-top: 4%;
+    margin-left: 45%;
+}
+#name{
+    margin-left: .7%;
+    margin-bottom: 2%;
+}
+.button{
+    margin-left: 46%;
+    margin-top: 3%;
+    color: wheat;
+    background-color: black;
+    border-radius: 10px;
+}
+.total{
+    margin-left: 45%;
+    margin-top: 4%;
+}

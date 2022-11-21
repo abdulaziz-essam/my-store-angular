@@ -1,0 +1,11 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink  [routerLink]="['/']">Main page</a>
+   
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink  [routerLink]="['/cart']">Cart</a>
+   
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>

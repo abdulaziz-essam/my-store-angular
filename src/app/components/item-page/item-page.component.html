@@ -1,5 +1,4 @@
-<app-navbar></app-navbar>
-<div class="card">
+<div class="card" *ngIf="this.getcomponentVisible()">
 
     <img class='img' src="{{item.url}}" alt="Avatar" >
  
@@ -9,18 +8,19 @@
       <br><br><br>
       
           <div ngbDropdown class="d-inline-block">
-            <button class="dropdown" type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{item.price}}  </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1"  >
-              <button ngbDropdownItem (click)="itemNumber(1)">1</button>
-              <button ngbDropdownItem (click)="itemNumber(2)">2</button>
-              <button ngbDropdownItem (click)="itemNumber(3)">3</button>
-              <button ngbDropdownItem (click)="itemNumber(4)">4</button>
-              <button ngbDropdownItem (click)="itemNumber(5)">5</button>
-            </div>
-  
+     
+  <select #newItem [(ngModel)]="selectedNode" required >
+    <option *ngFor="let node of tenant.nodes"   [value]="node">{{node}}</option>
+  </select>
         <br><br>
-        <button class="add-button"   (click)="sendToCart($event,item)" [routerLink]="['/cart']" >Add to cart</button>
-    </div>
+        <!-- (ngModelChange)="onSelection($event)" 
+        (click)="onSelection($event)" -->
+        <div class="yourCssClass" *ngIf="this.getIsButtonVisible()" (click)="setIsButtonVisible()" (click)="setcomponentVisible()" (click)="setcomponentVisible()" >
+          <button class="add-button" (click)="addNewItem(newItem.value)"  (click)="sendToCart(newItem.value,item)" [routerLink]="['/cart']" >Add to cart</button>
+          <!-- <button  *ngIf="this.isButtonVisible" (click)="setIsButtonVisible()"  [routerLink]="['/cart']">click me</button> -->
+           </div>
+      </div>
+ 
     <br><br><br>
   </div>
-  
+

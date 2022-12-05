@@ -3,6 +3,7 @@ import { ProductModule } from 'src/app/models/product/product.module';
 import { CartService } from 'src/app/services/cart.service';
 import { FormBuilder } from '@angular/forms';
 import {Router} from '@angular/router';
+import { Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -12,6 +13,9 @@ export class CartComponent implements OnInit {
 items:ProductModule[]=[]
 numOfItem:any=[]
 total=0  
+itemsss = ['item1', 'item2', 'item3', 'item4'];
+
+
 checkoutForm = this.formBuilder.group({
   name: '',
   address: ''
@@ -47,5 +51,17 @@ console.log(this.numOfItem)
   this.router.navigate(['/success'])
   }
 
+//@output
+addItem(newItem: string) {
+  this.itemsss.push(newItem);
 
+}
+getTotal(){
+  this.total=this.cart.get_cart_total()
+  return this.total
+}
+//this method to set cart total
+// setTotal(new_Total:number){
+// this.cart.setTotal(new_Total)
+// }
 }

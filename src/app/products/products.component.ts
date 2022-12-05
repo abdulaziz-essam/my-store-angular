@@ -18,10 +18,21 @@ export class ProductsComponent implements OnInit {
    }
   }
   ngOnInit(): void {
+    this.addToCartService.isButtonVisible=false
+    this.addToCartService.isComponentVisible=false
   }
+
+  //use it when add item to cart
 itemDetail(event:any,item:ProductModule){
   this.addToCartService.setItem(item)
 console.log(item)
+}
+
+setComponentVisibility(){
+  this.addToCartService.setComponentVisible()
+}
+setButtonVisibility(){
+  this.addToCartService.setIsButtonVisible()
 }
 
 }

@@ -9,6 +9,6 @@
        
       end of col
       <br><br>
-      <button (click)="itemDetail($event, item)"    [routerLink]="['/item']">click</button>
+      <button (click)="itemDetail($event, item)" (click)="this.setComponentVisibility()" (click)="setButtonVisibility()"  [routerLink]="['/cart']">click</button>
   </div>
 </div>

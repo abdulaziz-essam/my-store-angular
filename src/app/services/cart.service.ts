@@ -6,7 +6,8 @@ import { ProductModule } from '../models/product/product.module';
 export class CartService {
 items:ProductModule[]=[]
 num_of_items:any=[]
-
+//this var will use to set total 
+new_total:number=0
 submit_info:any
 constructor() { 
 
@@ -37,7 +38,7 @@ constructor() {
     return this.items
   }
   setNumOfItems(num:number){
-    // this.num_of_items.push(num)
+   this.num_of_items.push(num)
   }
   get_num_of_Items(){
       
@@ -62,4 +63,9 @@ setSubmitInfo(info:any){
       return this.submit_info
      }
 
+setTotal(price:number){
+  this.new_total=this.get_cart_total()
 }
+
+}
+

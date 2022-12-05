@@ -33,7 +33,7 @@ console.log(this.numOfItem)
   getNumberOfItems(id:any){
     
     const result = this.numOfItem.filter((item:any) => item.id==id );
-    console.log(result)
+ 
 
     return result[0].num
  
@@ -60,8 +60,12 @@ getTotal(){
   this.total=this.cart.get_cart_total()
   return this.total
 }
-//this method to set cart total
-// setTotal(new_Total:number){
-// this.cart.setTotal(new_Total)
-// }
+
+//this method to remove specific item
+remove(name:string){
+this.cart.remove_item(name)
+this.getTotal()
+console.log(name)
+}
+
 }

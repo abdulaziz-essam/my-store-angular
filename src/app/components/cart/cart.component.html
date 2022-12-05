@@ -25,7 +25,7 @@
 <!-- @output -->
 <app-item-page ></app-item-page>
 <!-- form end here -->
-  <h1 class="total">total {{total}}</h1>
+  <h1 class="total">total {{getTotal()}}</h1>
   
 <ul class="data" *ngFor="let item of items ;">
   <img class='img' src="{{item.url}}" alt="Avatar" style="width:10%" >
@@ -33,6 +33,7 @@
 <br>
 <h1>{{getNumberOfItems(item.id)}}</h1>
 <h1>{{item.price*getNumberOfItems(item.id)}}</h1>
+<button (click)="remove(item.name)" >Remove</button>
  
 
 </li>    

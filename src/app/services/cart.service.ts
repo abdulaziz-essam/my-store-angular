@@ -7,11 +7,12 @@ export class CartService {
 items:ProductModule[]=[]
 num_of_items:any=[]
 //this var will use to set total 
-new_total:number=0
+total:number=0
 submit_info:any
 constructor() { 
 
   }
+  
   addToCart(item:ProductModule ,numOFItem:number){
     // const result = this.items.filter((one_item:any) => one_item.id==item.id );
     let num=0
@@ -34,24 +35,27 @@ constructor() {
   }
   }
   
+
   getCart(){
     return this.items
   }
+
   setNumOfItems(num:number){
    this.num_of_items.push(num)
   }
+
   get_num_of_Items(){
       
 return this.num_of_items
   }
-
+//this method calculate total price of all items in the cart
   get_cart_total(){
-    let total=0
+    this.total=0
 for (let i = 0; i < this.num_of_items.length; i++) {
-total+=this.num_of_items[i].price*this.num_of_items[i].num
+this.total+=this.num_of_items[i].price*this.num_of_items[i].num
   
 }
-return total   
+return this.total   
 }
 
 setSubmitInfo(info:any){
@@ -63,8 +67,22 @@ setSubmitInfo(info:any){
       return this.submit_info
      }
 
-setTotal(price:number){
-  this.new_total=this.get_cart_total()
+remove_item(name:string){
+this.items=this.items.filter((element) => {
+ if(element.name==name)
+  this.num_of_items=this.num_of_items.filter((elem:any)=>{
+     return elem.id!==element.id
+  })
+
+  return element.name !== name;
+});
+this.total=this.get_cart_total()
+console.log(this.total)
+console.log("cart service "+this.items)
+for (let i = 0; i < this.num_of_items.length; i++) {
+console.log(this.num_of_items[i])
+}
+
 }
 
 }

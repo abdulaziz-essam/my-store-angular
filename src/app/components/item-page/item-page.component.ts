@@ -36,16 +36,18 @@ selectedNode: any
 
   }
   //this method to send item to cart in cart service
-  sendToCart(numOfItem:any,item:ProductModule){
-this.itemNumber(numOfItem)
-this.cart.addToCart(item,this.selectedNumber)
+  sendToCart(numOfItem:string,item:ProductModule){
+console.log("send to cart method "+ numOfItem)
+//casting numOfItem from string to number
+let item_number=Number(numOfItem)
+this.cart.addToCart(item,item_number)
   }
 
   // this method to set number of items
-itemNumber(num:number){
-num
-  this.cart.setNumOfItems(num)
-  console.log("this num"+num)
+itemNumber(num:string){
+let numOfItem=Number(num)
+  this.cart.setNumOfItems(numOfItem)
+  console.log("this num"+numOfItem)
 }
 
   // @output
@@ -54,8 +56,8 @@ num
   }
 
 //this method to change value if selected number changed
-  onSelection(node:any){
-  this.itemNumber(node)
+  onSelection(node:number){
+  
   console.log(node)
   }
 
@@ -81,7 +83,5 @@ return this.addToCart.isButtonVisible
 return this.addToCart.isComponentVisible
   }
 
-  setTotal(){
-    
-  }
+
 }

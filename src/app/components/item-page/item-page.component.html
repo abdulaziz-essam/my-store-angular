@@ -16,7 +16,7 @@
         <!-- (ngModelChange)="onSelection($event)" 
         (click)="onSelection($event)" -->
         <div class="yourCssClass" *ngIf="this.getIsButtonVisible()" (click)="setIsButtonVisible()" (click)="setcomponentVisible()" (click)="setcomponentVisible()" >
-          <button class="add-button" (click)="addNewItem(newItem.value)"  (click)="sendToCart(newItem.value,item)" [routerLink]="['/cart']" >Add to cart</button>
+          <button class="add-button" (click)="addNewItem(newItem.value)" (click)="sendToCart(newItem.value,item)" [routerLink]="['/cart']" >Add to cart</button>
           <!-- <button  *ngIf="this.isButtonVisible" (click)="setIsButtonVisible()"  [routerLink]="['/cart']">click me</button> -->
            </div>
       </div>

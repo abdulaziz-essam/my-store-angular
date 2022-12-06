@@ -28,6 +28,7 @@ constructor(private addToCart:AddToCartService ,private cart:CartService) {
 @Output() newItemEvent = new EventEmitter<string>();
 tenant: any = {name:'asd',nodes:[1,2,3,4,5]};
 name = 'Angular 5';
+//this varible to know number of item
 selectedNode: any
 
 //varible value when componet show up
@@ -36,11 +37,11 @@ selectedNode: any
 
   }
   //this method to send item to cart in cart service
-  sendToCart(numOfItem:string,item:ProductModule){
-console.log("send to cart method "+ numOfItem)
+  sendToCart(item:ProductModule){
+
 //casting numOfItem from string to number
-let item_number=Number(numOfItem)
-this.cart.addToCart(item,item_number)
+
+this.cart.addToCart(item,this.selectedNode)
   }
 
   // this method to set number of items
@@ -84,4 +85,12 @@ return this.addToCart.isComponentVisible
   }
 
 
+  statusChanged(numOfItem:string){
+this.selectedNode=Number(numOfItem)    
+  }
+
+
+  feedback(){
+    alert("you add new item to the cart")
+  }
 }

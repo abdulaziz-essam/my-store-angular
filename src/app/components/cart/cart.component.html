@@ -1,25 +1,23 @@
 <app-navbar></app-navbar>
 
-<ul>
-  <li *ngFor="let item of itemsss">{{item}}</li>
-</ul>
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" #myform="ngForm">
 
   <div>
     <label for="name">
       Name
     </label>
-    <input id="name" type="text" formControlName="name">
+    <input id="name" type="text" formControlName="name" required>
   </div>
 
   <div>
     <label for="address">
       Address
     </label>
-    <input id="address" type="text" formControlName="address" #newItem>
+    <input id="address" type="text" formControlName="address" #newItem required>
   </div>
-
-  <button class="button" type="submit"  >Purchase</button>
+<h1 *ngIf="myform.invalid" class="warning"> you should write your name and address to complete your Purchase</h1>
+  <button class="button" type="submit" [disabled]="myform.invalid" >Purchase</button>
 
 </form>
 <!-- @output -->
@@ -33,9 +31,12 @@
 <br>
 <h1>{{getNumberOfItems(item.id)}}</h1>
 <h1>{{item.price*getNumberOfItems(item.id)}}</h1>
-<button (click)="remove(item.name)" >Remove</button>
+<button (click)="remove(item.name)" (click)="feedback()" >Remove</button>
  
 
 </li>    
 </ul>
+
+
+
 

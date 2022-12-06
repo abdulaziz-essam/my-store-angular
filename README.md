@@ -1,27 +1,13 @@
-# MyApp
+to run this app use command : ng serve
+http://localhost:4200/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
+services: add-to-cart use to add new item to the cart and it's has all functions for do that
+cart services : have all funtion to show cart items and total correctly
+data service : here we take data from json file
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+components :
+link between products and products list with @input to share data between these two components
+use @output to link between item-page and cart 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+models : productmodels have all items attributes 

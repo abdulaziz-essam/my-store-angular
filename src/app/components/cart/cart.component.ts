@@ -4,6 +4,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { FormBuilder } from '@angular/forms';
 import {Router} from '@angular/router';
 import { Output, EventEmitter } from '@angular/core';
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -13,7 +14,7 @@ export class CartComponent implements OnInit {
 items:ProductModule[]=[]
 numOfItem:any=[]
 total=0  
-itemsss = ['item1', 'item2', 'item3', 'item4'];
+
 
 
 checkoutForm = this.formBuilder.group({
@@ -28,6 +29,8 @@ constructor(private cart:CartService , private formBuilder: FormBuilder, private
 this.numOfItem=this.cart.get_num_of_Items()
 this.total=this.cart.get_cart_total()
 console.log(this.numOfItem)
+
+//use to check form data
   }
 
   getNumberOfItems(id:any){
@@ -51,11 +54,7 @@ console.log(this.numOfItem)
   this.router.navigate(['/success'])
   }
 
-//@output
-addItem(newItem: string) {
-  this.itemsss.push(newItem);
-
-}
+//
 getTotal(){
   this.total=this.cart.get_cart_total()
   return this.total
@@ -66,6 +65,10 @@ remove(name:string){
 this.cart.remove_item(name)
 this.getTotal()
 console.log(name)
+}
+
+feedback(){
+  alert("item has been removed")
 }
 
 }

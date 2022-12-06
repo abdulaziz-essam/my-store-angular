@@ -6,7 +6,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ItemPageComponent } from './components/item-page/item-page.component';
@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,

@@ -17,6 +17,8 @@ export class ProductsComponent implements OnInit {
     description:"",
    }
   }
+  tenant: any = {name:'asd',nodes:[1,2,3,4,5]};
+  
   ngOnInit(): void {
     this.addToCartService.isButtonVisible=false
     this.addToCartService.isComponentVisible=false

@@ -1,27 +1,28 @@
 <app-navbar></app-navbar>
 
 
-<form [formGroup]="checkoutForm" #myform="ngForm" (ngSubmit)="onSubmit(myform)" >
+<form [formGroup]="checkoutForm" #myform="ngForm" (ngSubmit)="onSubmit(newItem.value)" >
 
   <div>
     <label for="name">
       Name
     </label>
-    <input id="name" type="text" formControlName="name" required minlength="3" maxlength="25">
+    <input id="name" type="text" formControlName="name" required minlength="1" maxlength="25" #newItem  >
   </div>
 
   <div>
     <label for="address">
       Address
     </label>
-    <input id="address" type="text" formControlName="address" minlength="3" maxlength="25" #newItem required>
+    <input id="address" type="text" formControlName="address" minlength="3" maxlength="25" required>
   </div>
-<h1 *ngIf="myform.invalid" class="warning"> you should write your name and address to complete your Purchase</h1>
+  
+<h1 *ngIf="myform.invalid" class="warning" > your name  should be more than 1 latter and your address should be more than 3 latter</h1>
 
 <!-- <div class="warning" *ngIf="name.errors?.minlength">
   Name must be at least 3 characters long.
 </div>  -->
-  <button class="button" type="submit" [disabled]="myform.invalid" >Purchase</button>
+  <button class="button" type="submit" [disabled]="myform.invalid"  >Purchase</button>
 
 </form>
 <!-- @output -->

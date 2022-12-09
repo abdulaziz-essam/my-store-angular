@@ -3,8 +3,7 @@ import { ProductModule } from 'src/app/models/product/product.module';
 import { CartService } from 'src/app/services/cart.service';
 import { FormBuilder } from '@angular/forms';
 import {Router} from '@angular/router';
-import { Output, EventEmitter } from '@angular/core';
-import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -43,12 +42,29 @@ console.log(this.numOfItem)
  
   }
 
-  onSubmit(form:any): void {
+  onSubmit(name:string): void {
     // Process checkout data here
 
-  }
+  console.log(this.checkoutForm.value)
+    console.warn('Your order has been submitted', this.checkoutForm.value);
+ 
+    // this.checkoutForm.reset();
+  
+if(!this.isNumber(name)){
+  this.cart.setSubmitInfo(this.checkoutForm.value)
+  this.router.navigate(['/success'])
+}else{
+  alert("wrong this number not name")
+}
+    }
 
-//
+//check if user name is valid or not
+isNumber(n:any) {
+   return !isNaN(parseFloat(n)) && !isNaN(n - 0)
+   }
+
+
+
 getTotal(){
   this.total=this.cart.get_cart_total()
   return this.total
@@ -64,7 +80,5 @@ console.log(name)
 feedback(){
   alert("item has been removed")
 }
-
-
 
 }

@@ -43,15 +43,9 @@ console.log(this.numOfItem)
  
   }
 
-  onSubmit(): void {
+  onSubmit(form:any): void {
     // Process checkout data here
 
-  console.log(this.checkoutForm.value)
-    console.warn('Your order has been submitted', this.checkoutForm.value);
-
-    // this.checkoutForm.reset();
-  this.cart.setSubmitInfo(this.checkoutForm.value)
-  this.router.navigate(['/success'])
   }
 
 //
@@ -70,5 +64,7 @@ console.log(name)
 feedback(){
   alert("item has been removed")
 }
+
+
 
 }

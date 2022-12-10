@@ -9,9 +9,10 @@
       
           <div ngbDropdown class="d-inline-block">
      
-  <select #newItem [(ngModel)]="selectedNode" required (ngModelChange)="statusChanged($event)"  class="select">
+  <select #newItem [(ngModel)]="selectedNode" required (ngModelChange)="statusChanged($event)"  >
     <option *ngFor="let node of tenant.nodes"   [value]="node">{{node}}</option>
   </select>
+  
         <br><br>
         <!-- (ngModelChange)="onSelection($event)" 
         (click)="onSelection($event)" -->

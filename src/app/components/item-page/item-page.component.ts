@@ -29,9 +29,10 @@ constructor(private addToCart:AddToCartService ,private cart:CartService) {
 tenant: any = {name:'asd',nodes:[1,2,3,4,5]};
 name = 'Angular 5';
 //this varible to know number of item
-selectedNode: any
+selectedNode: any=1
 
 //varible value when componet show up
+
   ngOnInit(): void {
     this.item=this.addToCart.getItem()
 

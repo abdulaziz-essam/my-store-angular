@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProductModule } from 'src/app/models/product/product.module';
 import { CartService } from 'src/app/services/cart.service';
 import { FormBuilder } from '@angular/forms';
@@ -21,7 +21,7 @@ checkoutForm = this.formBuilder.group({
   address: ''
 });
 
-constructor(private cart:CartService , private formBuilder: FormBuilder, private router:Router) { }
+constructor(private cart:CartService  , private formBuilder: FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
     this.items=this.cart.getCart()
@@ -32,7 +32,7 @@ console.log(this.numOfItem)
 //use to check form data
   }
 
-  getNumberOfItems(id:any){
+  getNumberOfItems(id:number){
     
     const result = this.numOfItem.filter((item:any) => item.id==id );
  
@@ -42,6 +42,15 @@ console.log(this.numOfItem)
  
   }
 
+  addNewItem(value: ProductModule,num:number) {
+    alert("this is output")
+this.cart.addToCart(value,Number(num))
+  }
+ 
+
+  addToCart(item:ProductModule,num:number){
+
+  }
   onSubmit(name:string): void {
     // Process checkout data here
 
@@ -67,6 +76,7 @@ isNumber(n:any) {
 
 getTotal(){
   this.total=this.cart.get_cart_total()
+ 
   return this.total
 }
 

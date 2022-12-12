@@ -10,7 +10,7 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class ItemPageComponent implements OnInit {
 item:ProductModule
-selectedItem=''
+
 selectedNumber=1
 
 
@@ -25,11 +25,12 @@ constructor(private addToCart:AddToCartService ,private cart:CartService) {
     
   }
  
-@Output() newItemEvent = new EventEmitter<string>();
+@Output() newItemEvent = new EventEmitter<ProductModule>();
+@Output() selectedItem = new EventEmitter<string>();
 tenant: any = {name:'asd',nodes:[1,2,3,4,5]};
 name = 'Angular 5';
 //this varible to know number of item
-selectedNode: any=1
+selectedNode: number=1
 
 //varible value when componet show up
 
@@ -46,16 +47,22 @@ this.cart.addToCart(item,this.selectedNode)
   }
 
   // this method to set number of items
-itemNumber(num:string){
-let numOfItem=Number(num)
-  this.cart.setNumOfItems(numOfItem)
-  console.log("this num"+numOfItem)
+itemNumber(num:number){
+
+  this.cart.setNumOfItems(num)
+  console.log("this num"+num)
 }
 
   // @output
-  addNewItem(value: string) {
+
+  addNewItem(value: ProductModule,num:string ) {
+this.cart.addToCart(value,Number(num))
     this.newItemEvent.emit(value);
+  //we get num as string from ui and in cart we will change it to number
+    this.selectedItem.emit(num);
   }
+    // @output
+
 
 //this method to change value if selected number changed
   onSelection(node:number){

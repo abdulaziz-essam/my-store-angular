@@ -12,6 +12,6 @@
           <option *ngFor="let node of tenant.nodes"   [value]="node">{{node}}</option>
         </select>
         <br><br>
-      <button (click)="itemDetail($event, item)" (click)="this.setComponentVisibility()" (click)="setButtonVisibility()"  [routerLink]="['/cart']">Add item</button>
+      <button (click)="itemDetail($event, item)" (click)="this.setComponentVisibility()" (click)="setButtonVisibility()"  [routerLink]="['/item']">Add item</button>
   </div>
 </div>

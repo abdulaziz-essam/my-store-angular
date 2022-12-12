@@ -12,6 +12,9 @@ submit_info:any
 constructor() { 
 
   }
+
+ 
+
   
   addToCart(item:ProductModule ,numOFItem:number){
     // const result = this.items.filter((one_item:any) => one_item.id==item.id );

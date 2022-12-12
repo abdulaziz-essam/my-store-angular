@@ -12,6 +12,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { ItemPageComponent } from './components/item-page/item-page.component';
 import { SuccessOrderComponent } from './success-order/success-order.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './form/form.component';
+import { CartChildComponent } from './cart-child/cart-child.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
      CartComponent,
      ItemPageComponent,
      SuccessOrderComponent,
+     FormComponent,
+     CartChildComponent,
 
   ],
   imports: [

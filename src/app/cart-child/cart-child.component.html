@@ -1,0 +1,14 @@
+
+
+<ul class="data" *ngFor="let item of items ;">
+    <img class='img' src="{{item.url}}" alt="Avatar" style="width:10%" >
+  <li>{{item.name}}
+  <br>
+  <h1>{{getNumberOfItems(item.id)}}</h1>
+  <h1>{{item.price*getNumberOfItems(item.id)}}</h1>
+  <button (click)="remove(item.name)" (click)="feedback()" (click)="getCart()" >Remove</button>
+   
+  
+  </li>    
+  </ul>
+  
